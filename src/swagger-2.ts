@@ -21,6 +21,10 @@ export interface Swagger2 {
   };
 }
 
+export interface Options {
+  prettierOptions: prettier.Options;
+}
+
 // Primitives only!
 const TYPES: { [index: string]: string } = {
   string: 't.string',
@@ -37,7 +41,7 @@ function sanitize(name: string): string {
   return name.includes('-') ? `'${name}'` : name;
 }
 
-function parse(spec: Swagger2): string {
+function parse(spec: Swagger2, options: Options): string {
   const queue: [string, Swagger2Definition][] = [];
   const { definitions } = spec;
 
@@ -282,11 +286,7 @@ function parse(spec: Swagger2): string {
   ${[...ioDefinitions].reverse().join('')}
   `;
 
-  return prettier.format(output, {
-    parser: 'typescript',
-    singleQuote: true,
-    trailingComma: 'es5',
-  });
+  return prettier.format(output, options.prettierOptions);
 }
 
 export default parse;

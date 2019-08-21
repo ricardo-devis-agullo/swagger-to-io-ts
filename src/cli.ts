@@ -28,12 +28,17 @@ async function main() {
   Options
     --help            display this
     --output, -o      specify output file
+    --prettier, -p    specify prettier config file
   `,
     {
       flags: {
         output: {
           type: 'string',
           alias: 'o',
+        },
+        prettier: {
+          type: 'string',
+          alias: 'p',
         },
       },
     }

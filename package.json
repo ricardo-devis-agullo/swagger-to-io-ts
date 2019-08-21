@@ -1,6 +1,6 @@
 {
   "name": "swagger-to-io-ts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Generate io-ts types from Swagger OpenAPI specs",
   "main": "dist/toTs.js",
   "bin": "dist/cli.js",
