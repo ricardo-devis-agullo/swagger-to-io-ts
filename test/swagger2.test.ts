@@ -305,28 +305,6 @@ describe('Swagger 2 spec', () => {
       expect(swaggerToTS(swagger)).toBe(ts);
     });
 
-    it('converts snake_case to camelCase if specified', () => {
-      const swagger: Swagger2 = {
-        definitions: {
-          User: {
-            properties: {
-              profile_image: { type: 'string' },
-              address_line_1: { type: 'string' },
-            },
-            type: 'object',
-          },
-        },
-      };
-
-      const ts = format(`
-      export interface User {
-        profileImage?: string;
-        addressLine1?: string;
-      }`);
-
-      expect(swaggerToTS(swagger, { camelcase: true })).toBe(ts);
-    });
-
     it('handles kebab-case property names', () => {
       const swagger: Swagger2 = {
         definitions: {

@@ -18,17 +18,6 @@ npx swagger-to-io-ts schema.yaml --output schema.ts
 
 This will save a `schema.ts` file in the current folder. The CLI can accept YAML or JSON for the input file.
 
-#### CamelCasing properties
-
-Within interfaces, you may want to convert `snake_case` properties to
-`camelCase` by adding the `--camelcase` flag:
-
-```bash
-npx swagger-to-io-ts schema.yaml --camelcase --wrapper "declare namespace OpenAPI" --output schema.d.ts
-
-# 🚀 schema.yaml -> schema.d.ts [2ms]
-```
-
 #### Generating multiple schemas
 
 Say you have multiple schemas you need to parse. I’ve found the simplest way
